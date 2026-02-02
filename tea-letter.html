@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEAHOUSE Pu'er Gift Letter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            color: #2a2a2a;
+            background: #fafafa;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+        
+        header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            font-weight: normal;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .letter-content {
+            position: relative;
+            background: white;
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .letter-content:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        
+        .letter-content > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .letter-content p {
+            margin-bottom: 1.3em;
+            text-align: justify;
+        }
+        
+        .sidebar-note {
+            background: #f9f3e8;
+            padding: 20px;
+            margin: 30px 0;
+            border-left: 4px solid #d4af37;
+            font-size: 0.95em;
+        }
+        
+        .sidebar-note h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        
+        .section {
+            margin-bottom: 80px;
+        }
+        
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #8b63aa;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+            -webkit-text-stroke: 0.5px #d97156;
+            paint-order: stroke fill;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 30px 0;
+            background: #000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .video-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .link-card {
+            position: relative;
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            transform: skewY(-2deg);
+        }
+        
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 140%;
+            height: 200%;
+            transform: rotate(-12deg);
+            z-index: 0;
+            opacity: 0.45;
+            transition: opacity 0.3s ease;
+        }
+        
+        .link-card.color-1::before {
+            background: #f2c7de;
+        }
+        
+        .link-card.color-2::before {
+            background: #8e8e73;
+        }
+        
+        .link-card.color-3::before {
+            background: #98c7de;
+        }
+        
+        .link-card:hover::before {
+            opacity: 0.65;
+        }
+        
+        .link-card:hover {
+            transform: skewY(-2deg) translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        
+        .link-card > * {
+            position: relative;
+            z-index: 1;
+            transform: skewY(2deg);
+        }
+        
+        .link-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .link-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .link-card a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+        
+        .link-card a:hover {
+            border-bottom-color: #2563eb;
+        }
+        
+        .note {
+            font-size: 0.9em;
+            color: #888;
+            font-style: italic;
+            margin-top: 8px;
+        }
+        
+        .signature {
+            margin-top: 40px;
+            text-align: right;
+            font-style: italic;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .letter-content {
+                padding: 30px 25px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .section h2 {
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>A Gift from Ukraine</h1>
+            <p class="subtitle">TEAHOUSE Pu'er & Travel Stories</p>
+            <div style="width: 100%; height: 1px; background: linear-gradient(to right, transparent 0%, #d0d0d0 20%, #d0d0d0 80%, transparent 100%); margin: 30px 0; position: relative;">
+                <div style="position: absolute; top: -3px; left: 50%; transform: translateX(-50%); width: 40px; height: 7px; background: #d0d0d0; border-radius: 50%;"></div>
+            </div>
+            <p style="text-align: center; color: #666; font-size: 1.1em; font-style: italic; margin: 0 auto 40px auto; max-width: 600px;">Welcome to the interactive version of our letter! Scroll down for links and videos to explore while enjoying your tea!</p>
+        </header>
+        
+        <div class="letter-content" style="padding: 0; overflow: hidden;">
+            <iframe src="TEAHOUSE_PUER_GIFT_-_V2.pdf" style="width: 100%; height: 1100px; border: none;"></iframe>
+        </div>
+        
+        <h2 style="font-family: 'Impact', 'Arial Black', sans-serif; font-size: 3.5em; margin: 0 0 60px 0; font-weight: 900; letter-spacing: 0.05em; font-style: italic; text-align: center; line-height: 1.2; transform: rotate(-3deg);"><span style="background: #2563eb; padding: 10px 30px; display: inline-block; background: linear-gradient(135deg, #98c7de 0%, #f2c7de 50%, #98c7de 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; -webkit-text-stroke: 2px #000; paint-order: stroke fill; position: relative;"><span style="position: absolute; top: 50%; left: 0; right: 0; bottom: 0; background: #8b63aa; z-index: -1; transform: translateY(-50%) scaleY(0.85);"></span>Things to peruse while</span><br><span style="background: #2563eb; padding: 10px 30px; display: inline-block; background: linear-gradient(135deg, #98c7de 0%, #f2c7de 50%, #98c7de 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; -webkit-text-stroke: 2px #000; paint-order: stroke fill; position: relative;"><span style="position: absolute; top: 50%; left: 0; right: 0; bottom: 0; background: #8b63aa; z-index: -1; transform: translateY(-50%) scaleY(0.85);"></span>enjoying your tea!</span></h2>
+        
+        <div class="section">
+            <h2>The Tea</h2>
+            
+            <div class="link-card color-1">
+                <h3>TEAHOUSE Pu'er No570 with Lemon</h3>
+                <p>The original tea we discovered in Lviv — smooth with pops of pepper and bright citrus notes.</p>
+                <a href="https://teahouse.ua/chaj-shu-puer-z-limonom-num570/" target="_blank">View on TEAHOUSE.ua →</a>
+                <p class="note">Note: Website displays in Ukrainian, use browser toolbar or right click menu to translate</p>
+            </div>
+            
+            <div class="link-card color-2" style="text-align: right;">
+                <h3>TEAHOUSE Perfect Cup No570 (Portion Packs)</h3>
+                <p>Convenient single-serve portions of the No570 blend.</p>
+                <a href="https://teahouse.ua/chaj-porcijnij-perfect-cup-shu-puer-z-limonom-num570-15-3g/" target="_blank">View on TEAHOUSE.ua →</a>
+                <p class="note">Note: Website displays in Ukrainian, use browser toolbar or right click menu to translate</p>
+            </div>
+            
+            <div class="link-card color-3">
+                <h3>TEAHOUSE Detox Pu'er No575</h3>
+                <p>The tea we brought you — No570's subtly spiced apple cousin with similar depth and character.</p>
+                <a href="https://teahouse.ua/chaj-detoks-shu-puer-nasinnia-chaj-shcho-nadaie-enerhii-num575/" target="_blank">View on TEAHOUSE.ua →</a>
+                <p class="note">Note: Website displays in Ukrainian, use browser toolbar or right click menu to translate</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>The Story Behind TEAHOUSE</h2>
+            
+            <div class="link-card color-1" style="text-align: right;">
+                <h3>Russian Missile Destroys Ukrainian Tea Factory</h3>
+                <p>The tragic attack that destroyed TEAHOUSE's production facility in July 2025, on Katherine's birthday.</p>
+                <a href="https://newsukraine.rbc.ua/news/russian-missile-wipes-out-tea-factory-of-1753546379.html" target="_blank">Read the full article →</a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Health Benefits of Pu'er Tea</h2>
+            
+            <div class="link-card color-2">
+                <h3>Scientific Research on Pu'er Tea</h3>
+                <p>Peer-reviewed research documenting the health benefits of Pu'er tea, including cholesterol management and metabolic effects.</p>
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7866600/#fsn32096-sec-0024" target="_blank">Read the research paper →</a>
+                <p class="note">Source: National Library of Medicine</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Discovering Ukraine</h2>
+            
+            <p style="margin-bottom: 30px;">Two beautiful documentaries showcasing contemporary Ukrainian culture, landscapes, and resilience.</p>
+            
+            <h3 style="margin: 40px 0 20px 0; font-size: 1.4em;">Culture Quest: Ukraine</h3>
+            <p style="margin-bottom: 20px; color: #666;">PBS documentary exploring Ukrainian culture through art, music, and tradition.</p>
+            <div class="video-container color-3">
+                <iframe src="https://player.pbs.org/viralplayer/3113839652/" allowfullscreen allow="encrypted-media"></iframe>
+            </div>
+            
+            <h3 style="margin: 60px 0 20px 0; font-size: 1.4em;">Dare to Ukraine</h3>
+            <p style="margin-bottom: 20px; color: #666;">Lviv, the ultimate first stop to experience Ukraine</p>
+            <div class="video-container color-1">
+                <iframe src="https://www.youtube.com/embed/oYkRd-2GtbQ" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Ukrainian Folk Costume Videos</h2>
+            
+            <p style="margin-bottom: 30px;">The beautifully produced short films that play on Ukrainian train journeys, showcasing regional folk costumes and cultural heritage.</p>
+            
+            <div class="video-container color-2">
+                <iframe src="https://www.youtube.com/embed/HsMtwBKcv0w?si=iQdkmzvwqC2RfKk4" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+            
+            <div class="link-card color-3" style="margin-top: 30px;">
+                <h3>Full Playlist: Heritage / Спадок</h3>
+                <p>Watch the complete series of folk costume documentaries.</p>
+                <a href="https://www.youtube.com/watch?v=HsMtwBKcv0w&list=PLZ0MkIFZFSm25Zs9yI_n1fr-js35IsoaR&index=1" target="_blank">View playlist on YouTube →</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>This page was created with care by Katherine & Duane<br>
+            To share stories from Ukraine 🇺🇦</p>
+        </footer>
+    </div>
+</body>
+</html>
